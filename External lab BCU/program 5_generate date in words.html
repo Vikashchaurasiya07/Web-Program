@@ -1,0 +1,14 @@
+<html>
+<head>
+ <title>Current Date in Words</title>
+</head>
+<body>
+ <h2>Current Date in Words</h2>
+ <p id="currentDate"></p>
+ <script>
+ var d = new Date();
+ var monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+ document.getElementById('currentDate').innerText = `Today is ${monthNames[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
+ </script>
+</body>
+</html>

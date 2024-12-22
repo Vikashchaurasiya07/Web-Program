@@ -1,0 +1,52 @@
+<html>
+<head>
+  <title>Employee Information Form</title>
+</head>
+<body>
+  <h2>Employee Information</h2>
+  <form>
+    Employee Name: <input type="text" id="employeeName"><br>
+    Basic Salary: <input type="number" id="basicSalary"><br>
+    HRA (%): <input type="number" id="hraPercentage"><br>
+    DA (%): <input type="number" id="daPercentage"><br>
+    Tax (%): <input type="number" id="taxPercentage"><br>
+    <input type="button" value="Calculate" onclick="calculateSalary()">
+  </form>
+
+  <h3>Salary Details:</h3>
+  <p>DA: <span id="da"></span></p>
+  <p>HRA: <span id="hra"></span></p>
+  <p>PF: <span id="pf"></span></p>
+  <p>TAX: <span id="tax"></span></p>
+  <p>Gross Pay: <span id="grossPay"></span></p>
+  <p>Deduction: <span id="deduction"></span></p>
+  <p>Net Pay: <span id="netPay"></span></p>
+
+  <script>
+    function calculateSalary() {
+      var salary = +document.getElementById('basicSalary').value;
+      var hra = +document.getElementById('hraPercentage').value;
+      var da = +document.getElementById('daPercentage').value;
+      var tax = +document.getElementById('taxPercentage').value;
+      
+
+
+      var daAmount = salary * da / 100;
+      var hraAmount = salary * hra / 100;
+      var pf = salary * 0.12; 
+      var taxAmount = salary * tax / 100;
+      var gross = salary + daAmount + hraAmount;
+      var deductions = pf + taxAmount;
+      var netPay = gross - deductions;
+
+      document.getElementById('da').innerText = daAmount.toFixed(2);
+      document.getElementById('hra').innerText = hraAmount.toFixed(2);
+      document.getElementById('pf').innerText = pf.toFixed(2);
+      document.getElementById('tax').innerText = taxAmount.toFixed(2);
+      document.getElementById('grossPay').innerText = gross.toFixed(2);
+      document.getElementById('deduction').innerText = deductions.toFixed(2);
+      document.getElementById('netPay').innerText = netPay.toFixed(2);
+    }
+  </script>
+</body>
+</html>

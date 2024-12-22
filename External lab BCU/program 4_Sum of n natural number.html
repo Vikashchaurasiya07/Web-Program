@@ -1,0 +1,17 @@
+<html>
+<head>
+  <title>Sum of N Numbers</title>
+  <script>
+    const calculateSum = () => {
+      const n = +inputNumber.value;
+      result.textContent = n > 0 ? `Sum: ${(n * (n + 1)) / 2}` : 'Enter a positive number';
+    };
+  </script>
+</head>
+<body>
+  <h2>Sum of N Numbers</h2>
+  <input type="number" id="inputNumber" placeholder="Enter N">
+  <button onclick="calculateSum()">Calculate</button>
+  <p id="result"></p>
+</body>
+</html>

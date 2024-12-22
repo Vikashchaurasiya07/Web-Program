@@ -1,0 +1,26 @@
+<html>
+<head>
+ <title>Form Validation</title>
+ <script>
+   function validateForm() {
+     let name = document.getElementById('name').value.trim();
+     let email = document.getElementById('email').value.trim();
+     let mobile = document.getElementById('mobile').value.trim();
+
+     if (!name || !email || !mobile) return alert('All fields are required.');
+     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return alert('Invalid email address.');
+     if (mobile.length !== 10 || isNaN(mobile)) return alert('Invalid 10-digit mobile number.');
+     alert('Form submitted successfully!');
+   }
+ </script>
+</head>
+<body>
+ <h2>Contact Form</h2>
+ <form onsubmit="event.preventDefault(); validateForm();">
+  Name: <input type="text" id="name"><br>
+  Email: <input type="text" id="email"><br>
+  Mobile: <input type="text" id="mobile"><br>
+  <input type="submit" value="Submit">
+ </form>
+</body>
+</html>

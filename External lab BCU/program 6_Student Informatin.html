@@ -1,0 +1,36 @@
+<html>
+<head>
+ <title>Student Information Form</title>
+</head>
+<body>
+ <h2>Student Information</h2>
+ <form>
+   Name: <input type="text" id="name"><br>
+   Math: <input type="number" id="math"><br>
+   Science: <input type="number" id="science"><br>
+   English: <input type="number" id="english"><br>
+   <button type="button" onclick="calculate()">Calculate</button>
+ </form>
+ <h3>Results:</h3>
+ <p>Total: <span id="total"></span></p>
+ <p>Average: <span id="average"></span></p>
+ <p>Result: <span id="result"></span></p>
+ <p>Grade: <span id="grade"></span></p>
+
+ <script>
+ function calculate() {
+   var m = parseInt(document.getElementById('math').value);
+   var s = parseInt(document.getElementById('science').value);
+   var e = parseInt(document.getElementById('english').value);
+   
+   var total = m + s + e;
+   var avg = total / 3;
+   
+   document.getElementById('total').innerText = total;
+   document.getElementById('average').innerText = avg.toFixed(2);
+   document.getElementById('result').innerText = avg >= 40 ? 'Pass' : 'Fail';
+   document.getElementById('grade').innerText = avg >= 90 ? 'A' : avg >= 80 ? 'B' : avg >= 70 ? 'C' : avg >= 60 ? 'D' : 'F';
+ }
+ </script>
+</body>
+</html>
